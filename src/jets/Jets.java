@@ -6,9 +6,24 @@ public abstract class Jets {
 	private int range;
 	private long price;
 	
-	public void fly() {
-		// prints details of jet and the amount of time the jet can
-		// fly until it runs out of fuel (based on speed and range)
+	public void Jet(String model, double speed, int range, long price) {
+		this.model = model;
+		this.speed = speed;
+		this.range = range;
+		this.price = price;
+		
+		
+	}
+	
+	public void Jet() {
+		
+	}
+	
+	public double getSpeedInMach(int speedInMiles) {
+		double speed=0;
+		// speed = some equation
+		
+		return speed;
 	}
 	
 	
@@ -16,7 +31,11 @@ public abstract class Jets {
 	
 	
 	
-	
+	public void fly() {
+		// prints details of jet and the amount of time the jet can
+		// fly until it runs out of fuel (based on speed and range)
+		System.out.println("Jets [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]");
+	}
 	
 	
 	public String getModel() {
@@ -42,6 +61,12 @@ public abstract class Jets {
 	}
 	public void setPrice(long price) {
 		this.price = price;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Jets [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]";
 	}
 
 	
