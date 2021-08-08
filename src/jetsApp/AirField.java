@@ -9,18 +9,7 @@ import java.util.List;
 
 
 public class AirField {
-	
-	// need to file read here from jets.txt
-	// read the five jets to the array list in AirField
-	// "the method to parse a file into Jet objects should
-	// return a List<Jet> with parameter String "jets.txt"
-	// use String.split() to break each line using commas
-	// to break each line in the file into data
-
 	public List<Jets> listOfJets = new ArrayList<>();
-	
-		
-		
 		
 	public void createListOfJets(String fileName){
 		BufferedReader br = null;
@@ -36,21 +25,36 @@ public class AirField {
 				long newPrice=Long.parseLong(list[3]);
 				
 				
-//				List<String> = (line.split(",");
 				switch(counter) {
 					case(0):
-						AWACS awacs = new AWACS(newModel, newSpeed, newRange, newPrice);
-						awacs.fly();
+						SatellitePlane awacs = new SatellitePlane(newModel, newSpeed, newRange, newPrice);
+						listOfJets.add(awacs);
 						counter++;
+						continue;
+					case(1):
+						CargoPlane cargo = new CargoPlane(newModel, newSpeed, newRange, newPrice);
+						listOfJets.add(cargo);
+						counter++;
+						continue;
+					case(2):
+						SpyPlane rc = new SpyPlane(newModel, newSpeed, newRange, newPrice);
+						listOfJets.add(rc);
+						counter++;
+						continue;
+					case(3):
+						AttackPlane jet = new AttackPlane(newModel, newSpeed, newRange, newPrice);
+						listOfJets.add(jet);
+						counter++;
+						continue;
+					case(4):
+						Fighter fighter = new Fighter(newModel, newSpeed, newRange, newPrice);
+						listOfJets.add(fighter);
+						counter++;
+						
 				}
 				
-				
-				
-				
-				listOfJets.add(null);
-						
-						
 			}
+			
 		}
 		catch(IOException e) {
 			System.err.println(e);
@@ -65,6 +69,5 @@ public class AirField {
 				}
 			}
 		}
-		
 	}
 }

@@ -1,7 +1,7 @@
 package jets;
 
-public class JetsImpl extends Jets {
-	public JetsImpl(String model, double speed, int range, long price) {
+public class SpyPlane extends Jets {
+	public SpyPlane(String model, double speed, int range, long price) {
 		this.model = model;
 		this.speed = speed;
 		this.range = range;
@@ -9,8 +9,12 @@ public class JetsImpl extends Jets {
 		this.flightTime = (Math.floor((range / speed) * 100) / 100);
 	}
 
-	public JetsImpl() {
+	public SpyPlane() {
 
+	}
+
+	public void spy() {
+		System.out.println("RC135 collects data! It's super effective! Critical hit!");
 	}
 
 	@Override
@@ -21,6 +25,6 @@ public class JetsImpl extends Jets {
 	
 	@Override
 	public String toString() {
-		return "model - " + model + " speed - " + speed + " range - " + range + " price - " + price;
+		return "model - " + model + "   speed - " + speed + "   range - " + range + "   price - " + price;
 	}
 }

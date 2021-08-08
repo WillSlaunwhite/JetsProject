@@ -1,4 +1,5 @@
 package jets;
+import jetsApp.*;
 
 public class JetsInterface {
 	// 1. List fleet
@@ -13,6 +14,21 @@ public class JetsInterface {
 	
 	public void launchMainInterface() {
 		// main menu here
+		
+		System.out.println(
+				"Choose an option \n" +
+				"1. List fleet \n" +
+				"2. Fly all jets \n" +
+				"3. View fastest jest \n" +
+				"4. View jet with longest range \n" +
+				"5. Load cargo \n" +
+				"6. Spy \n" +
+				"7. Search for aircraft \n" +
+				"8. Pew Pew! \n" +
+				"9. Add a jet to Fleet \n" +
+				"10. Remove a jet from Fleet \n" +
+				"11. Quit"
+				);
 	}
 	
 	
