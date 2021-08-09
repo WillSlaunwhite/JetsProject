@@ -9,6 +9,7 @@ import java.util.List;
 
 
 public class AirField {
+	// creates new List interface containing Jets objects
 	public List<Jets> listOfJets = new ArrayList<>();
 		
 	public void createListOfJets(String fileName){
@@ -27,27 +28,27 @@ public class AirField {
 				
 				switch(counter) {
 					case(0):
-						SatellitePlane awacs = new SatellitePlane(newModel, newSpeed, newRange, newPrice);
+						SatelliteJet awacs = new SatelliteJet(newModel, newSpeed, newRange, newPrice);
 						listOfJets.add(awacs);
 						counter++;
 						continue;
 					case(1):
-						CargoPlane cargo = new CargoPlane(newModel, newSpeed, newRange, newPrice);
+						CargoJet cargo = new CargoJet(newModel, newSpeed, newRange, newPrice);
 						listOfJets.add(cargo);
 						counter++;
 						continue;
 					case(2):
-						SpyPlane rc = new SpyPlane(newModel, newSpeed, newRange, newPrice);
+						SpyJet rc = new SpyJet(newModel, newSpeed, newRange, newPrice);
 						listOfJets.add(rc);
 						counter++;
 						continue;
 					case(3):
-						AttackPlane jet = new AttackPlane(newModel, newSpeed, newRange, newPrice);
+						AttackJet jet = new AttackJet(newModel, newSpeed, newRange, newPrice);
 						listOfJets.add(jet);
 						counter++;
 						continue;
 					case(4):
-						Fighter fighter = new Fighter(newModel, newSpeed, newRange, newPrice);
+						FighterJet fighter = new FighterJet(newModel, newSpeed, newRange, newPrice);
 						listOfJets.add(fighter);
 						counter++;
 						

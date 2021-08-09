@@ -2,10 +2,13 @@ package jets;
 
 public abstract class Jets {
 	protected String model;
-	protected double speed; // needs to be given in mph and mach
+	protected double speed;
 	protected int range;
 	protected long price;
 	protected double flightTime;
+	private boolean inFlight;
+
+	public Pilot pilot;
 
 	public Jets(String model, double speed, int range, long price) {
 		this.model = model;
@@ -17,19 +20,31 @@ public abstract class Jets {
 	}
 
 	public Jets() {
-		
+
 	}
 
 	public double getSpeedInMach(double speedInMiles) {
-		double speed = 0;
-		speed*=.0013;
-		speed = Math.floor((speed*100)) / 100;
-		return speed;
+		speedInMiles /= 767;
+		speedInMiles = Math.floor((speed * 100)) / 100;
+		return speedInMiles;
 	}
 
 	public void fly() {
-		System.out.println("model - " + model + " speed - " + speed + "speed in mach - " + this.getSpeedInMach(speed) + " range - " + range + " price - " + price
-				+ " flight time - " + flightTime + "\n");
+		System.out.println("Model: " + model.toUpperCase() + "\tSpeed: " + speed + "\tRange: " + range + "\tPrice: "
+				+ getPriceInDollars(price) + "\tFlight Time: " + flightTime + " hours");
+	}
+
+	public boolean isInFlight() {
+		return inFlight;
+	}
+
+	public void setInFlight(boolean inFlight) {
+		this.inFlight = inFlight;
+	}
+
+	@Override
+	public String toString() {
+		return "Model: " + model.toUpperCase() + "\tSpeed: " + speed + "\tRange:" + range + "\tPrice:" + price;
 	}
 
 	public String getModel() {
@@ -60,13 +75,29 @@ public abstract class Jets {
 		return price;
 	}
 
-	public void setPrice(long price) {
-		this.price = price;
+	public String getPriceInDollars(long price) {
+		String dollarAmount = "";
+		if ((price / 1000000000) >= 1) {
+			price /= 1000000000;
+			dollarAmount = String.valueOf(price).concat(" billion");
+			return dollarAmount;
+		} else if ((price / 1000000) >= 1) {
+			price /= 1000000;
+			dollarAmount = String.valueOf(price).concat(" million");
+			return dollarAmount;
+		} else if ((price / 1000) >= 1) {
+			price /= 1000;
+			dollarAmount = String.valueOf(price).concat(" thousand");
+			return dollarAmount;
+		} else {
+			dollarAmount = "0";
+			return dollarAmount;
+		}
+
 	}
 
-	@Override
-	public String toString() {
-		return "model - " + model + "   speed - " + speed + "   range - " + range + "   price - " + price;
+	public void setPrice(long price) {
+		this.price = price;
 	}
 
 }
